@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Sayang</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      cursor: crosshair;
+    }
+
+    #canvas {
+      display: block;
+      background: transparent;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .title {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      animation: glow 2s ease-in-out infinite alternate;
+      max-width: 90%;
+      word-wrap: break-word;
+    }
+
+    .input-container {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 20;
+      pointer-events: auto;
+    }
+
+    .custom-code-input {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  color: #00ffcc;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  width: 800px;
+  max-width: 95vw;
+  height: 300px; /* BESARKAN HEIGHT */
+  resize: both; /* Benarkan resize */
+  overflow: auto; /* Benarkan skrol */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  outline: none;
+  transition: border 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+
+    .custom-code-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .custom-code-input:focus {
+      border-color: #00ffcc;
+      box-shadow: 0 0 12px #00ffcc;
+    }
+
+    .subtitle {
+      position: absolute;
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+      to { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8); }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    .audio-notice {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .title { font-size: 2.5rem; top: 35%; }
+      .subtitle { font-size: 1rem; }
+      .custom-code-input { width: 300px; font-size: 1rem; padding: 12px 20px; }
+      .input-container { top: 55%; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <div class="overlay">
+    <div class="title" id="customTitle">Happy Birthday Sayang</div>
+
+    <div class="input-container">
+      <textarea class="custom-code-input" id="textInput"
+                placeholder="ermm hai sayangg assalamualaikum cinta saya , hihi dah lama kan kita tak chat kita tak call , rinduunyaaaa awakkk saya chat awak ni sebab saya nak ucap selamat hari jadi cinta saya yang comell ni hihi , semoga awak dipanjangkan umur dimurahkan rezeki sayang sihat selalu , dan apa yang awak buat semoga selalu dipermudahkan urusan ye sayang hihi saya nak mintak maaf tau sayang if saya ada terkasar bahasa dengan awak , ada marah awak sebab saya pun tak sempurna kan tapi saya cuba yang terbaik okey untuk jadi lebih baik dari sebelum ni ye sayang .. hmm sebenarnya saya jujur dengan awak yang saya rindu dekat awak sangat ii sayang saya rindu masa mula ii kita kenal dulu kita malu ii nak kenal each other but tengok la lama kelamaan kita pun dah selesa kan macam dah lama sangat relay kita tapi tu la takdir dah menentukan yang kita bahagia buat sementara je .. hmm awak tau tak masa first ii kenal saya suka sangat tengok awak lagi ii masa vc dengan awak , and awak send gambar apa semua saya cam tah la tak terkata awak punya senyuman sayang , saya suka tengok sangat awak bahagia hmm tapi sekarang kita tak macam tu dah , apa yang saya boleh buat hanya mampu berdoa je la kan ? tapi takpe la saya cuba terima takdir dan redho apa yang jadi hmm walaupun berat kenyataan yang benda ni terjadi dengan sekelip mata ... saya rindu sangat nak awak panggil saya baby , saya rindu nak bermanja dengan awak , nak bercerita dengan awak macam ii , suka duka kita lalui sama ii and sleepcall dengan awak , saya rindu sangat semua tu hmm saya harap awak pun rasa benda yang sama apa yang saya rasa , cuma tu la apa yang saya boleh cakap sekarang ni yang awak kena selalu ingat yang walaupun apa dugaan yang awak lalui lepas ni and if awak penat sangat , saya Amirul Haikal takkan ke mana ii and saya sentiasa ada untuk awak anytime sayang okay ? awak datang la dekat saya bila bila masa awak nak datang if awak dah ready okay ? saya selalu berdoa untuk awak , untuk relay kita supaya dapat jadi macam dulu , saya penat nak menagis hari ii yang kita jadi macam ni , saya tak boleh terima kenyataaan tau hmm , saya mintak maaf tau sayang ? and yeah semoga awak happy apa yang saya kasi hadiah untuk awak tu saya beli special punya bouquet tu untuk awak sayang , hihi semoga awak suka la dengan pemberian saya ye , hmm but if kalau awak dah nak lupakan semua pun jangan la buang apa yang saya kasi tau sayang ? hihi tu je la saya nak cakap and one more time happy birthday my pretty girlf , semoga awak dilembutkan hati untuk terima saya balik ye sayang , i love you so much cintaaa hati 🤍" rows="8"></textarea>
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="lagu.mp3" autoplay loop></audio>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Firework {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.particles = [];
+        this.colors = [
+          '#ff0000', '#ff4500', '#ffd700', '#00ff00',
+          '#0080ff', '#8000ff', '#ff69b4', '#00ffff',
+          '#ff1493', '#32cd32', '#ffa500', '#da70d6'
+        ];
+        this.createParticles();
+      }
+
+      createParticles() {
+        const count = Math.random() * 50 + 30;
+        for (let i = 0; i < count; i++) {
+          this.particles.push({
+            x: this.x, y: this.y,
+            vx: (Math.random() - 0.5) * 15,
+            vy: (Math.random() - 0.5) * 15,
+            color: this.colors[Math.floor(Math.random() * this.colors.length)],
+            life: 1,
+            decay: Math.random() * 0.03 + 0.01,
+            size: Math.random() * 4 + 2
+          });
+        }
+      }
+
+      update() {
+        this.particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.3;
+          p.vx *= 0.98;
+          p.life -= p.decay;
+          p.size *= 0.98;
+          if (p.life <= 0) this.particles.splice(i, 1);
+        });
+      }
+
+      draw() {
+        this.particles.forEach(p => {
+          ctx.save();
+          ctx.globalAlpha = p.life;
+          ctx.fillStyle = p.color;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#fff';
+          ctx.globalAlpha = p.life * 0.5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * 0.3, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        });
+      }
+
+      isDead() {
+        return this.particles.length === 0;
+      }
+    }
+
+    class Rocket {
+      constructor(startX, startY, targetX, targetY) {
+        this.x = startX;
+        this.y = startY;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.speed = 8;
+        this.angle = Math.atan2(targetY - startY, targetX - startX);
+        this.vx = Math.cos(this.angle) * this.speed;
+        this.vy = Math.sin(this.angle) * this.speed;
+        this.trail = [];
+        this.exploded = false;
+      }
+
+      update() {
+        if (!this.exploded) {
+          this.trail.push({ x: this.x, y: this.y, life: 20 });
+          this.x += this.vx;
+          this.y += this.vy;
+
+          const d = Math.hypot(this.targetX - this.x, this.targetY - this.y);
+          if (d < 20) {
+            this.exploded = true;
+            return new Firework(this.x, this.y);
+          }
+        }
+
+        this.trail.forEach((p, i) => {
+          p.life--;
+          if (p.life <= 0) this.trail.splice(i, 1);
+        });
+
+        return null;
+      }
+
+      draw() {
+        this.trail.forEach(p => {
+          ctx.save();
+          ctx.globalAlpha = p.life / 20;
+          ctx.fillStyle = '#ffaa00';
+          ctx.shadowBlur = 5;
+          ctx.shadowColor = '#ffaa00';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        });
+
+        if (!this.exploded) {
+          ctx.save();
+          ctx.fillStyle = '#fff';
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = '#fff';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      isDead() {
+        return this.exploded && this.trail.length === 0;
+      }
+    }
+
+    let fireworks = [];
+    let rockets = [];
+
+    function animate() {
+      ctx.fillStyle = 'rgba(12, 12, 12, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      rockets.forEach((rocket, i) => {
+        const fw = rocket.update();
+        rocket.draw();
+        if (fw) fireworks.push(fw);
+        if (rocket.isDead()) rockets.splice(i, 1);
+      });
+
+      fireworks.forEach((fw, i) => {
+        fw.update();
+        fw.draw();
+        if (fw.isDead()) fireworks.splice(i, 1);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    canvas.addEventListener('click', e => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      rockets.push(new Rocket(Math.random() * canvas.width, canvas.height, x, y));
+    });
+
+    function autoFirework() {
+      const count = Math.floor(Math.random() * 3) + 1;
+      for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+          rockets.push(new Rocket(
+            Math.random() * canvas.width, canvas.height,
+            Math.random() * canvas.width, Math.random() * canvas.height * 0.6 + 50
+          ));
+        }, i * 300);
+      }
+    }
+
+    setInterval(autoFirework, 1500);
+    setInterval(() => {
+      if (Math.random() < 0.7) {
+        rockets.push(new Rocket(
+          Math.random() * canvas.width, canvas.height,
+          Math.random() * canvas.width, Math.random() * canvas.height * 0.5 + 100
+        ));
+      }
+    }, 800);
+
+    setInterval(() => {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          rockets.push(new Rocket(
+            Math.random() * canvas.width, canvas.height,
+            Math.random() * canvas.width, Math.random() * canvas.height * 0.4 + 80
+          ));
+        }, i * 200);
+      }
+    }, 5000);
+
+    function updateText() {
+      const input = document.getElementById('textInput');
+      const title = document.getElementById('customTitle');
+      if (input.value.trim() !== '') {
+        title.textContent = input.value.trim();
+        input.value = '';
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            rockets.push(new Rocket(
+              Math.random() * canvas.width, canvas.height,
+              Math.random() * canvas.width, Math.random() * canvas.height * 0.5 + 50
+            ));
+          }, i * 200);
+        }
+      }
+    }
+
+    document.getElementById('textInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        updateText();
+      }
+    });
+
+    animate();
+
+    setTimeout(() => {
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          rockets.push(new Rocket(
+            Math.random() * canvas.width, canvas.height,
+            Math.random() * canvas.width, Math.random() * canvas.height * 0.5 + 100
+          ));
+        }, i * 400);
+      }
+    }, 500);
+
+    canvas.addEventListener('touchstart', e => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      rockets.push(new Rocket(Math.random() * canvas.width, canvas.height, x, y));
+    });
+
+    // Music autoplay handling
+    const music = document.getElementById("bgMusic");
+    window.addEventListener("load", () => {
+      music.volume = 1.0;
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const notice = document.createElement("div");
+          notice.className = "audio-notice";
+          notice.innerHTML = "🎵 Klik mana-mana untuk mulakan lagu";
+          document.body.appendChild(notice);
+          const startMusic = () => {
+            music.play();
+            notice.remove();
+            window.removeEventListener("click", startMusic);
+            window.removeEventListener("touchstart", startMusic);
+          };
+          window.addEventListener("click", startMusic);
+          window.addEventListener("touchstart", startMusic);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
